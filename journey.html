@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Journey - Zero To Website</title>
+    
+    <style>
+        /* Base page styling */
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 { color: #ffffff; }
+        h2 { color: #81c784; }
+        h3 { color: #4fc3f7; }
+
+        /* Header Container holding both navigation rows vertically */
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 10px 0;
+        }
+
+        /* Row 1: Keeps the brand title on the left and navigation on the right */
+        .nav-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .brand-title {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #4fc3f7;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Row 2: Search bar alignment directly below branding */
+        .search-row {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .search-box input {
+            background-color: #252525;
+            color: #e0e0e0;
+            border: 1px solid #333333;
+            padding: 8px 12px;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+            font-size: 14px;
+            flex-grow: 1;
+        }
+
+        /* The sleek mint-green search button */
+        .search-btn {
+            background-color: #81c784;
+            color: #121212;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
+        }
+
+        .search-btn:hover {
+            background-color: #66bb6a;
+        }
+
+        /* TIMELINE LAYOUT STYLES */
+        .timeline-container {
+            position: relative;
+            padding: 20px 0 20px 30px; /* Leaves room on the left for the line */
+            margin-top: 30px;
+        }
+
+        /* The vertical spine of the timeline */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #333333; /* Dark grey line */
+            border-radius: 2px;
+        }
+
+        /* Individual timeline item block */
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        /* The milestone dot on the line */
+        .timeline-dot {
+            position: absolute;
+            left: -26px; /* Positions dot perfectly over the 10px line */
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background-color: #81c784; /* Signature green */
+            border: 4px solid #121212; /* Matches body background to look "hollow" or framed */
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        /* Color override for the "active" current step */
+        .timeline-item.active .timeline-dot {
+            background-color: #4fc3f7; /* Highlights current milestone in blue */
+            box-shadow: 0 0 8px #4fc3f7; /* Adds a clean glowing effect */
+        }
+
+        /* The styled roadmap card content */
+        .timeline-card {
+            background-color: #1e1e1e;
+            padding: 20px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: #81c784;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        .timeline-item.active .timeline-date {
+            color: #4fc3f7;
+        }
+
+        .timeline-card h3 {
+            margin: 0 0 10px 0;
+            color: #ffffff;
+            font-size: 1.25rem;
+        }
+
+        .timeline-card p {
+            margin: 0;
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+        /* Styled "No Results" Container */
+.no-results-box {
+    display: none; /* Hidden by default! */
+    background-color: #1e1e1e;
+    border: 1px dashed #444444;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.no-results-box p {
+    color: #b0b0b0;
+    margin: 0;
+    font-size: 1.1rem;
+}
+    </style>
+</head>
+<body>
+
+    <header class="header-container">
+        <div class="nav-row">
+            <span class="brand-title">Zero To Website</span>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="journey.html">My Journey</a>
+                <a href="tools.html">AI Tools</a>
+            </nav>
+        </div>
+        
+      <div class="search-row">
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+        <button type="button" id="search-btn" class="search-btn">🔍</button>
+    </div>
+</div>
+    </header>
+    <hr>
+
+    <h1>My Personal Roadmap</h1>
+    <p>Documenting my transition from practicing raw keys on a home row typing test to managing multi-page web directory networks.</p>
+
+    <div class="timeline-container">
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <span class="timeline-date">Week 1</span>
+                <h3>Keyboard Mastery & Curiosity</h3>
+                <p>Started on Typing.com to increase computer speed. Realized the upper rows of characters (braces, brackets, F-keys) had a hidden purpose in tech, sparking my front-end coding journey.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <span class="timeline-date">Week 2</span>
+                <h3>The HTML & CSS Foundation</h3>
+                <p>Coded structural page frames (HTML) and styled a modern dark-mode aesthetic (CSS). Connected interactive JavaScript event listeners for live browser triggers.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <span class="timeline-date">Week 3</span>
+                <h3>Multi-Page Architecture & Real-Time Search</h3>
+                <p>Upgraded Zero To Website into a connected multi-page setup (`index.html`, `journey.html`, `tools.html`). Built dynamic search filtering logic and custom UX fallback components.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item active">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <span class="timeline-date">Week 4 (Current)</span>
+                <h3>Deployment & Going Live</h3>
+                <p>Transitioned from local browser previews (`vscode.dev`) to publishing live code onto global web hosting servers accessible to the public.</p>
+            </div>
+        </div>
+
+    </div>
+    <div id="no-results" class="no-results-box">
+    <p>🚫 No articles found matching your search. Try a different keyword!</p>
+</div>
+<script>
+       const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-btn');
+const timelineItems = document.querySelectorAll('.timeline-item');
+const noResults = document.getElementById('no-results');
+
+function performTimelineSearch() {
+    const query = searchInput.value.toLowerCase().trim();
+    let matchesFound = 0;
+
+    timelineItems.forEach(item => {
+        const itemText = item.textContent.toLowerCase();
+
+        if (itemText.includes(query)) {
+            item.style.display = 'block';
+            matchesFound++;
+        } else {
+            item.style.display = 'none';
+        }
+    });
+
+    if (matchesFound === 0) {
+        noResults.style.display = 'block';
+    } else {
+        noResults.style.display = 'none';
+    }
+}
+
+searchButton.addEventListener('click', performTimelineSearch);
+searchInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') { performTimelineSearch(); }
+});
+    </script>
+</body>
+</html>

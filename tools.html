@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools - Zero To Website</title>
+    
+    <style>
+        /* Base page styling */
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 { color: #ffffff; }
+        h2 { color: #81c784; }
+        h3 { color: #4fc3f7; }
+        .article-box { 
+            background-color: #1e1e1e; 
+            padding: 25px; 
+            border-radius: 8px; 
+            margin-bottom: 25px;
+        }
+        .highlight-box {
+            border-left: 4px solid #81c784;
+            background-color: #252525;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Header Container holding both navigation rows vertically */
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Adds vertical space between links and search bar */
+            padding: 10px 0;
+        }
+
+        /* Row 1: Keeps the brand title on the left and navigation on the right */
+        .nav-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Prevents text cutoff on smaller screens */
+            gap: 10px;
+        }
+
+        .brand-title {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px; /* Modern spacing between links */
+        }
+
+        .nav-links a {
+            color: #4fc3f7;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Row 2: Search bar alignment directly below branding */
+        .search-row {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 300px; /* Keeps the search bar beautifully compact */
+        }
+
+        .search-box input {
+            background-color: #252525;
+            color: #e0e0e0;
+            border: 1px solid #333333;
+            padding: 8px 12px;
+            border-radius: 4px 0 0 4px; /* Rounds only left corners */
+            outline: none;
+            font-size: 14px;
+            flex-grow: 1;
+        }
+
+        /* The sleek mint-green search button */
+        .search-btn {
+            background-color: #81c784;
+            color: #121212;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 0 4px 4px 0; /* Rounds only right corners */
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
+        }
+
+        .search-btn:hover {
+            background-color: #66bb6a; /* Smooth green hover animation */
+        }
+        /* Styled "No Results" Container */
+.no-results-box {
+    display: none; /* Hidden by default! */
+    background-color: #1e1e1e;
+    border: 1px dashed #444444;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.no-results-box p {
+    color: #b0b0b0;
+    margin: 0;
+    font-size: 1.1rem;
+}
+    </style>
+</head>
+<body>
+
+    <header class="header-container">
+        <div class="nav-row">
+            <span class="brand-title">Zero To Website</span>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="journey.html">My Journey</a>
+                <a href="tools.html">AI Tools</a>
+            </nav>
+        </div>
+        
+     <div class="search-row">
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Search tools or features..." aria-label="Search">
+            <button type="button" id="search-btn" class="search-btn">🔍</button>
+        </div>
+    </div>
+    </header>
+    <hr>
+
+    <div class="article-box">
+        <h1>My AI Tech Stack: The Power of One</h1>
+        <p>A common mistake beginners make is trying to use a dozen different tools at once. During this experimental phase of building <i>Zero To Website</i>, I decided to take a minimalist approach. I use exactly <b>one</b> AI tool: Google Gemini.</p>
+        
+        <div class="highlight-box">
+            <h3>Why limit the stack?</h3>
+            <p>If a tool is doing a great job, why switch? Mastering the prompting, capabilities, and workflow of a single powerful AI co-pilot beats having basic knowledge of five different platforms. It keeps me focused, fast, and completely out of "tool fatigue."</p>
+        </div>
+
+        <h2>How I Leverage My AI Co-Pilot</h2>
+        <p>I treat Gemini not as an automated cheat code, but as a technical lead and personal educator. Here is exactly how we build together daily:</p>
+        
+        <ul>
+            <li><b>The Architect:</b> Gemini provides the structural blueprints (HTML) and style configurations (CSS) for my pages based on my written goals.</li>
+            <li><b>The Digital Mechanic:</b> When a file path gets broken, a tab freezes, or a JavaScript alert refuses to trigger, I paste my code in, and Gemini diagnoses the bug under a microscope.</li>
+            <li><b>The Translator:</b> It translates dense programming jargon into plain English—like explaining how the computer reads brackets or colons.</li>
+        </ul>
+    </div>
+    <div id="no-results" class="no-results-box">
+    <p>🚫 No articles found matching your search. Try a different keyword!</p>
+</div>
+<script>
+        const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-btn');
+const toolItems = document.querySelectorAll('li');
+const noResults = document.getElementById('no-results');
+
+function performToolsSearch() {
+    const query = searchInput.value.toLowerCase().trim();
+    let matchesFound = 0;
+
+    toolItems.forEach(item => {
+        const itemText = item.textContent.toLowerCase();
+
+        if (itemText.includes(query)) {
+            item.style.display = 'list-item';
+            matchesFound++;
+        } else {
+            item.style.display = 'none';
+        }
+    });
+
+    if (matchesFound === 0) {
+        noResults.style.display = 'block';
+    } else {
+        noResults.style.display = 'none';
+    }
+}
+
+searchButton.addEventListener('click', performToolsSearch);
+searchInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') { performToolsSearch(); }
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero To Website</title>
+
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 { color: #ffffff; }
+        h2 { color: #81c784; }
+        h3 { color: #4fc3f7; }
+/* Header Container to hold both rows vertically */
+.header-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Adds clean vertical space between the links and the search bar */
+    padding: 10px 0;
+}
+
+/* Row 1: Keeps the brand title on the left and navigation on the right */
+.nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* If the screen gets too small, the links will wrap instead of cutting off */
+    gap: 10px;
+}
+
+.brand-title {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #ffffff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px; /* Spacers are handled dynamically with CSS now */
+}
+
+.nav-links a {
+    color: #4fc3f7;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Row 2: Search bar alignment directly below */
+.search-row {
+    display: flex;
+    justify-content: flex-start; /* Aligns search box to the left, under the branding */
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 300px; /* Prevents the search bar from stretching too wide */
+}
+
+.search-box input {
+    background-color: #252525;
+    color: #e0e0e0;
+    border: 1px solid #333333;
+    padding: 8px 12px;
+    border-radius: 4px 0 0 4px; /* Rounds only the left corners */
+    outline: none;
+    font-size: 14px;
+    flex-grow: 1; /* Lets the text input fill the box width */
+}
+
+/* The sleek mint-green search button */
+.search-btn {
+    background-color: #81c784;
+    color: #121212;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 0 4px 4px 0; /* Rounds only the right corners */
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.search-btn:hover {
+    background-color: #66bb6a;
+}
+/* Styled "No Results" Container */
+.no-results-box {
+    display: none; /* Hidden by default! */
+    background-color: #1e1e1e;
+    border: 1px dashed #444444;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.no-results-box p {
+    color: #b0b0b0;
+    margin: 0;
+    font-size: 1.1rem;
+}
+    </style>
+</head>
+<body>
+
+<header class="header-container">
+    <div class="nav-row">
+        <span class="brand-title">Zero To Website</span>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="journey.html">My Journey</a>
+            <a href="tools.html">AI Tools</a>
+        </nav>
+    </div>
+    
+    <div class="search-row">
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search">
+            <button type="button" id="search-btn" class="search-btn">🔍</button>
+        </div>
+    </div>
+</header>
+<hr>
+    <div class="article-box">
+        <h1>How I Am Building a Website Using 100% AI Ideas</h1>
+        <p>Let's be completely honest: I don't code as a hobby, and none of the design layouts on this page came from my own head. I started this project for one clear reason—to learn a high-income skill and make more money.</p>
+
+        <h2>From a Typing Test to a Code Editor</h2>
+        <p>It started with a simple curiosity about my laptop keyboard. I realized I never used the function keys, the square brackets, or the curly braces. To figure out what my computer could actually do, I started a course on Typing.com.</p>
+    </div>
+
+    <div class="article-box">
+        <h1>The Form Filler's Secret: Breaking the Reliance on the Mouse</h1>
+        <p>As I pushed deeper into my typing course, I didn't just learn where the letters were—I stumbled onto a massive workflow secret that saves hours of digital frustration. I learned that reaching for your mouse is often a trap that slows you down.</p>
+        
+        <h2>Two Keyboard Shortcuts That Changed Everything</h2>
+        <h3>1. The Application Speed-Run (The Tab Key)</h3>
+        <p>When filling out long forms or job applications online, I used to manually click into every single box. Now, I hit the <b>Tab</b> key to instantly jump to the next field. If I accidentally skip a box, I hold <b>Shift + Tab</b> to move backward up the page. It completely removes the clunky mouse work.</p>
+        
+        <h3>2. The Instant Habit Wipe (The F5 Key)</h3>
+        <p>During my speed and accuracy tests, I developed an optimization mindset. If I make an error that ruins my 100% accuracy run, I don't waste time finishing a compromised attempt. I hammer <b>F5</b> to instantly wipe the slate clean and start fresh.</p>
+    </div>
+
+    <div class="article-box">
+        <h1>The Leverage Era: Why AI and Typing Combined Is a Superpower</h1>
+        <p>When I looked at macroeconomic trends, I noticed a massive pattern: fields like Tech, Financial Services, and Healthcare are experiencing massive efficiency spikes because of AI integration. The game has changed. You no longer need to spend years memorizing thousands of lines of code to build software.</p>
+        
+        <h2>The New Definition of a Web Developer</h2>
+        <p>By pairing keyboard muscle memory with an AI copilot, I can construct web pages at lightning speed. The AI handles the syntax errors and provides the structural blueprints, while I manage the execution and steering. Learning how to direct these automated tools—rather than typing everything line-by-line—is how independent creators are maximizing their output and capturing income opportunities in record time.</p>
+    </div>
+    <div id="no-results" class="no-results-box">
+    <p>🚫 No articles found matching your search. Try a different keyword!</p>
+</div>
+
+    <button type="button" id="alert-btn">Read My Next Article</button>
+
+   <script>
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-btn');
+    const articles = document.querySelectorAll('.article-box');
+    
+    // Grab the new no-results container element
+    const noResults = document.getElementById('no-results');
+
+    function performSearch() {
+        const query = searchInput.value.toLowerCase().trim();
+        
+        // Start a counter to keep track of matching articles
+        let matchesFound = 0;
+
+        articles.forEach(article => {
+            const articleText = article.textContent.toLowerCase();
+
+            if (articleText.includes(query)) {
+                article.style.display = 'block';
+                matchesFound++; // Increment our counter if a card matches!
+            } else {
+                article.style.display = 'none';
+            }
+        });
+
+        // If our counter is 0, show the "No Results" box! Otherwise, keep it hidden.
+        if (matchesFound === 0) {
+            noResults.style.display = 'block';
+        } else {
+            noResults.style.display = 'none';
+        }
+    }
+
+    searchButton.addEventListener('click', performSearch);
+
+    searchInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            performSearch();
+        }
+    });
+</script>
+</body>
+
+</html>
